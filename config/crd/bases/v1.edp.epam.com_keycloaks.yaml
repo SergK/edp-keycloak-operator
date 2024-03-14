@@ -48,6 +48,23 @@ spec:
                 - serviceAccount
                 - user
                 type: string
+              caCertificateRef:
+                description: Reference to a Kubernetes object that contains a CA bundle.
+                properties:
+                  kind:
+                    description: Kind of the Kubernetes object.
+                    type: string
+                  name:
+                    description: Name of the Kubernetes object.
+                    type: string
+                  key:
+                    description: Key inside the Secret or ConfigMap that holds the CA bundle.
+                    type: string
+                required:
+                - kind
+                - name
+                - key
+                type: object
               secret:
                 description: Secret is a secret name which contains admin credentials.
                 type: string
@@ -101,6 +118,23 @@ spec:
                 - serviceAccount
                 - user
                 type: string
+              caCertificateRef:
+                description: Reference to a Kubernetes object that contains a CA bundle.
+                properties:
+                  kind:
+                    description: Kind of the Kubernetes object.
+                    type: string
+                  name:
+                    description: Name of the Kubernetes object.
+                    type: string
+                  key:
+                    description: Key inside the Secret or ConfigMap that holds the CA bundle.
+                    type: string
+                required:
+                - kind
+                - name
+                - key
+                type: object
               installMainRealm:
                 nullable: true
                 type: boolean
