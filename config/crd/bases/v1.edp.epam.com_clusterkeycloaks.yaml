@@ -55,6 +55,21 @@ spec:
               url:
                 description: URL of keycloak service.
                 type: string
+              caCertificateRef:
+                description: Reference to a Secret or ConfigMap containing the CA bundle used for connecting to Keycloak.
+                type: object
+                properties:
+                  kind:
+                    description: Kind of the referent; valid values are 'Secret' or 'ConfigMap'.
+                    type: string
+                  name:
+                    description: Name of the referent.
+                    type: string
+                  key:
+                    description: The key of the entry in the Secret or ConfigMap that contains the CA bundle.
+                    type: string
+                required:
+                - key
             required:
             - secret
             - url

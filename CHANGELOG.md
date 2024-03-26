@@ -2,6 +2,24 @@
 ## [Unreleased]
 
 
+<a name="v1.21.0"></a>
+## [v1.21.0] - 2024-04-03
+### Features
+- Implement new user role assignment mechanism ([#25](https://github.com/epam/edp-keycloak-operator/issues/25))
+- Support for custom Keycloak themes ([#26](https://github.com/epam/edp-keycloak-operator/issues/26))
+
+### Bug Fixes
+- Fix client secret regeneration issue ([#27](https://github.com/epam/edp-keycloak-operator/issues/27))
+
+### Testing
+- Extend test coverage for theme resources ([#26](https://github.com/epam/edp-keycloak-operator/issues/26))
+- Add tests for new role assignment logic ([#25](https://github.com/epam/edp-keycloak-operator/issues/25))
+
+### Routine
+- Update Go dependencies to latest stable versions ([#28](https://github.com/epam/edp-keycloak-operator/issues/28))
+- Refactor codebase to improve maintainability ([#29](https://github.com/epam/edp-keycloak-operator/issues/29))
+
+
 <a name="v1.20.0"></a>
 ## [v1.20.0] - 2024-01-11
 ### Features
@@ -72,7 +90,8 @@
 <a name="v1.17.0"></a>
 ## [v1.17.0] - 2023-08-17
 
-[Unreleased]: https://github.com/epam/edp-keycloak-operator/compare/v1.20.0...HEAD
+[Unreleased]: https://github.com/epam/edp-keycloak-operator/compare/v1.21.0...HEAD
+[v1.21.0]: https://github.com/epam/edp-keycloak-operator/compare/v1.20.0...v1.21.0
 [v1.20.0]: https://github.com/epam/edp-keycloak-operator/compare/v1.19.0...v1.20.0
 [v1.19.0]: https://github.com/epam/edp-keycloak-operator/compare/v1.18.2...v1.19.0
 [v1.18.2]: https://github.com/epam/edp-keycloak-operator/compare/v1.18.1...v1.18.2

@@ -5,3 +5,16 @@ metadata:
 spec:
   secret: keycloak-access
   url: https://keycloak.example.com
+  caCertificateRef:
+    kind: Secret
+    name: custom-ca
+    key: ca.crt
+
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: keycloak-access
+data:
+  username: YWRtaW4=
+  password: YWRtaW4=

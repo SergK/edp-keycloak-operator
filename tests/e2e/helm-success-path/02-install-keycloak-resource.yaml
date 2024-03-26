@@ -5,3 +5,7 @@ metadata:
 spec:
   secret: keycloak-secret
   url: http://keycloak:8081
+  caCertificateRef:
+    kind: Secret
+    name: keycloak-ca
+    key: ca.crt
