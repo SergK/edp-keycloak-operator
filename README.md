@@ -125,6 +125,60 @@ To prevent the operator from deleting resources from Keycloak, add the `edp.epam
        kind: Keycloak
    ```
 
+### Configuring Custom CA Certificates
+
+To secure communication between the Keycloak Operator and your Keycloak instances that use custom Certificate Authorities (CAs), you can create a ConfigMap or Secret containing your custom CA certificate. Then, update your Keycloak or ClusterKeycloak resources to reference this ConfigMap or Secret.
+
+#### Creating a ConfigMap or Secret for your CA Certificate
+
+1. Save your custom CA certificate to a file named `ca.crt`.
+
+2. Create a ConfigMap or Secret containing your custom CA certificate:
+
+    For a ConfigMap:
+
+    ```bash
+    kubectl create configmap keycloak-ca-cert --from-file=ca.crt=<path_to_your_ca.crt>
+    ```
+
+    For a Secret:
+
+    ```bash
+    kubectl create secret generic keycloak-ca-cert --from-file=ca.crt=<path_to_your_ca.crt>
+    ```
+
+#### Updating Keycloak or ClusterKeycloak Resources
+
+Update your Keycloak or ClusterKeycloak resources to reference the ConfigMap or Secret you created:
+
+1. To reference a ConfigMap:
+
+    ```yaml
+    apiVersion: v1.edp.epam.com/v1
+    kind: Keycloak
+    metadata:
+      name: keycloak-sample
+    spec:
+      secret: keycloak-access
+      url: https://keycloak.example.com
+      caCertConfigMap: keycloak-ca-cert
+    ```
+
+2. To reference a Secret:
+
+    ```yaml
+    apiVersion: v1.edp.epam.com/v1
+    kind: Keycloak
+    metadata:
+      name: keycloak-sample
+    spec:
+      secret: keycloak-access
+      url: https://keycloak.example.com
+      caCertSecret: keycloak-ca-cert
+    ```
+
+This configuration ensures that the Keycloak Operator can securely connect to your Keycloak instances using the provided custom CA certificate.
+
 ## Local Development
 
 To develop the operator, first set up a local environment, and refer to the [Local Development](https://epam.github.io/edp-install/developer-guide/local-development/) page.
